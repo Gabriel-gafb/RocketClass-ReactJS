@@ -1,8 +1,20 @@
+/* eslint-disable react/prop-types */
 import { ThumbsUp, Trash } from '@phosphor-icons/react'
 import styles from './Comment.module.css'
 import { Avatar } from './Avatar'
+import { useState } from 'react'
 
-export function Comment(){
+export function Comment({content, onDeleteComment}){
+
+    const [likeCount, setLikeCount] = useState(0)
+
+    function handleLikeComment(){
+        setLikeCount(likeCount+1)
+    }
+
+    function handleDeleteComment(){
+        onDeleteComment(content)
+    }
     return(
         <div className={styles.comment}>
             <Avatar hasBorder={false} src="https://github.com/gafb.png" alt=""/>
@@ -13,16 +25,16 @@ export function Comment(){
                             <strong> Gabriel Augusto</strong>
                             <time title="06 de junho às 20:50" dateTime='2023-06-06 20:50:00'>Cerca de 1h atráss</time>
                         </div>
-                        <button title='Deletar comentário'>
+                        <button onMouseDown={handleDeleteComment} title='Deletar comentário'>
                             <Trash size={20}/>
                         </button>
                     </header>
-                    <p>Muito bom fulano, parabéns!!</p>
+                    <p>{content}</p>
                 </div>
                 <footer>
-                   <button>
+                   <button onMouseDown={handleLikeComment}>
                         <ThumbsUp/>
-                        Aplaudir <span>20</span>
+                        Aplaudir <span>{likeCount}</span>
                    </button>
                 </footer>
             </div>

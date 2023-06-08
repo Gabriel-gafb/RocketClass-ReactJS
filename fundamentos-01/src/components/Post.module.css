@@ -96,6 +96,11 @@ cursor: pointer;
 transition: background-color 0.1s;
 }
 
+.commentForm button[type=submit]:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
 .commentForm footer{
     visibility: hidden;
     max-height: 0;
@@ -106,8 +111,8 @@ transition: background-color 0.1s;
     max-height: none;
 }
 
-.commentForm button[type=submit]:hover {
-background: var(--green-300);
+.commentForm button[type=submit]:not(:disabled):hover {
+    background: var(--green-300);
 }
 
 .commentList{
