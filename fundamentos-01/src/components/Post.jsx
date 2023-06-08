@@ -1,10 +1,12 @@
+import { Avatar } from './Avatar';
+import { Comment } from './Comment';
 import styles from './Post.module.css';
 export function Post(){
     return(
    <article className={styles.post}>
     <header>
         <div className={styles.author}>
-            <img className={styles.avatar} src="https://github.com/gafb.png"/>
+            <Avatar src="https://github.com/gafb.png"/>
             <div className={styles.authorInfo}>
                 <strong>Gabriel Augusto</strong>
                 <span> Software Developer</span>
@@ -21,6 +23,21 @@ export function Post(){
         <p> <a href="">#novoprojeto</a>{' '}
         <a href="">#nlw</a> {' '}
         <a href="">#rocketseat </a> </p>
+    </div>
+
+    <form className={styles.commentForm}>
+        <strong> Deixe seu feedback</strong>
+        <textarea placeholder='Deixe seu comentário'/>
+
+        <footer>
+            <button type="submit">Publicar</button>
+        </footer>
+        
+    </form>
+    <div className={styles.commenList}>
+        <Comment/>
+        <Comment/>
+        <Comment/>
     </div>
    </article>
     )
