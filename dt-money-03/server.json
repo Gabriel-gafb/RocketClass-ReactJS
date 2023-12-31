@@ -15,6 +15,14 @@
         "price": 60,
         "createdAt": "2023-11-22T00:29:32.291Z"
 
-    }
+    },
+    {"id": 3,
+    "description": "Desenvolvimento de site",
+    "type": "income",
+    "category": "Venda",
+    "price": 10000,
+    "createdAt": "2023-11-22T00:30:02.291Z"
+
+}
 ]
 }
